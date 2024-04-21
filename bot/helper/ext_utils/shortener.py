@@ -34,11 +34,11 @@ def short_url(longurl, attempt=0):
                 f"https://direct-link.net/{_shortener_api}/{random() * 1000}/dynamic?r={url}",
                 f"https://file-link.net/{_shortener_api}/{random() * 1000}/dynamic?r={url}"]
             return choice(linkvertise)
-        elif "bitly.com" in _shortener:
+        elif "fuck" in _shortener:
             headers = {"Authorization": f"Bearer {_shortener_api}"}
             return cget('POST', "https://api-ssl.bit.ly/v4/shorten", json={"long_url": longurl}, headers=headers).json()["link"]
-        elif "ouo.io" in _shortener:
-            return cget('GET', f'http://ouo.io/api/{_shortener_api}?s={longurl}', verify=False).text
+        elif "shrinkforearn.in" in _shortener:
+            return cget('GET', f'https://shrinkforearn.in/api?api=1616bdaab65635de074324862abacd70acec73c6&url={longurl}&alias=A{random()}', verify=False).text
         elif "cutt.ly" in _shortener:
             return cget('GET', f'http://cutt.ly/api/api.php?key={_shortener_api}&short={longurl}', verify=False).json()['url']['shortLink']
         else:
